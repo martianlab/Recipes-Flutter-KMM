@@ -28,35 +28,6 @@ class RecipeCategory2 extends StatelessWidget {
           });
     else
       return Text("");
-    // return SingleChildScrollView(
-    //   scrollDirection: Axis.horizontal,
-    //
-    //   // child: Row(
-    //   //   children: <Widget>[
-    //   //     RecipeCard(
-    //   //         image: "https://gcdn.utkonos.ru/resample/recipe-mobile/images/recipe/recipe_4867_A49C50A52A7F5BE9C88FA5169486A3E6-_A7A1461.jpg",
-    //   //         title: "Куриный бульон",
-    //   //         difficult: "средняя",
-    //   //         countOfPerson: 4,
-    //   //         press: (){}
-    //   //     ),
-    //   //     RecipeCard(
-    //   //         image: "https://gcdn.utkonos.ru/resample/recipe-mobile/images/recipe/20200709161452-final.jpg",
-    //   //         title: "Свекольник",
-    //   //         difficult: "низкая",
-    //   //         countOfPerson: 4,
-    //   //         press: (){}
-    //   //     ),
-    //   //     RecipeCard(
-    //   //         image: "https://gcdn.utkonos.ru/resample/recipe-mobile/images/recipe/20200430160301-final.jpg",
-    //   //         title: "Крем-суп с гречкой и печенью",
-    //   //         difficult: "средняя",
-    //   //         countOfPerson: 4,
-    //   //         press: (){}
-    //   //     ),
-    //   //   ],
-    //   // ),
-    // );
   }
 }
 
@@ -130,19 +101,25 @@ class RecipeCard extends StatelessWidget {
                         ]),
                     child: Row(
                       children: <Widget>[
-                        RichText(
-                            overflow: TextOverflow.fade,
-                            text: TextSpan(children: [
-                              TextSpan(
-                                  text: "${recipe.title}\n".toUpperCase(),
-                                  style: Theme.of(context).textTheme.button),
-                              // TextSpan(
-                              //     text: "${recipe.complexity}".toUpperCase(),
-                              //     style: TextStyle(
-                              //         color: kPrimaryColor.withOpacity(0.5)
-                              //     )
-                              // )
-                            ])),
+                        Flexible(
+                          child: Container(
+
+                              child: RichText(
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text: "${recipe.title}\n".toUpperCase(),
+                                    style: Theme.of(context).textTheme.button),
+                                // TextSpan(
+                                //     text: "${recipe.complexity}".toUpperCase(),
+                                //     style: TextStyle(
+                                //         color: kPrimaryColor.withOpacity(0.5)
+                                //     )
+                                // )
+                              ]))
+                          )
+                        ),
                         Spacer(),
                         Text("${recipe.personCount}",
                             style: Theme.of(context)
